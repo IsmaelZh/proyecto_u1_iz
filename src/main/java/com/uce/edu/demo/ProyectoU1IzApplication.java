@@ -7,8 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.consultorio.CitaMedica;
-import com.uce.edu.demo.consultorio.CitaMedica2;
+//import com.uce.edu.demo.consultorio.CitaMedica;
+//import com.uce.edu.demo.consultorio.CitaMedica2;
 import com.uce.edu.demo.parqueadero.Ticket;
 import com.uce.edu.demo.parqueadero.Ticket2;
 import com.uce.edu.demo.parqueadero.Ticket3;
@@ -40,10 +40,10 @@ public class ProyectoU1IzApplication implements CommandLineRunner{
         String respuesta = ticket.registrar(LocalDateTime.now(), "Ismael", "Zhindon", 1756289569, "Toyota", "Tozi", "Quitumbe");
         System.out.println(respuesta);
         
-        String respuesta2 = ticket2.registrar(LocalDateTime.now(), "Ismael", "Zhindon", 1756289569, "Toyota", "Tozi", "Quitumbe");
+        String respuesta2 = ticket2.registrar(LocalDateTime.now(), "Carlos", "Andrade", 179632500, "Ford", "Tozi", "Quitumbe");
         System.out.println(respuesta2);
         
-        String respuesta3 = ticket3.registrar(LocalDateTime.now(), "Ismael", "Zhindon", 1756289569, "Toyota", "Tozi", "Quitumbe");
+        String respuesta3 = ticket3.registrar(LocalDateTime.now(), "Manuel", "Verdugo", 179845476, "Chevrolet", "Tozi", "Quitumbe");
         System.out.println(respuesta3);
 
     }
