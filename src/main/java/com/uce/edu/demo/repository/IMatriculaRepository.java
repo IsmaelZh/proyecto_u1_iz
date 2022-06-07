@@ -6,7 +6,7 @@ public interface IMatriculaRepository {
 
 //CRUD
 	//C: crear/insertar 
-	public void insertar(Matricula m);
+	public void crear(Matricula m);
 	
 	//R: leer/buscar
 	public void buscar (Matricula m);

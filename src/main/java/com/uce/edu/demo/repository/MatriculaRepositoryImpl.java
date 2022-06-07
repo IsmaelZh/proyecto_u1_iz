@@ -8,7 +8,7 @@ import com.uce.edu.demo.modelo.Matricula;
 public class MatriculaRepositoryImpl implements IMatriculaRepository {
 
 	@Override
-	public void insertar(Matricula m) {
+	public void crear(Matricula m) {
 		// TODO Auto-generated method stub
 		System.out.println("Se a insertado en la base la matricula: " + m);
 	}

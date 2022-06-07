@@ -14,9 +14,9 @@ public class MatriculaServiceImpl implements IMatriculaService {
 	private IMatriculaRepository matriculaRepository;
 
 	@Override
-	public void ingresarMatricula(Matricula m) {
+	public void crearMatricula(Matricula m) {
 		// TODO Auto-generated method stub
-		this.matriculaRepository.insertar(m);
+		this.matriculaRepository.crear(m);
 		
 	}
 

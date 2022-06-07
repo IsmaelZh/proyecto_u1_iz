@@ -8,7 +8,7 @@ import com.uce.edu.demo.modelo.Materia;
 public class MateriaRepositoryImpl implements IMateriaRepository {
 
 	@Override
-	public void insertar(Materia m) {
+	public void crear(Materia m) {
 		// TODO Auto-generated method stub
 		System.out.println("Se a insertado en la base la materia: " + m);
 	}

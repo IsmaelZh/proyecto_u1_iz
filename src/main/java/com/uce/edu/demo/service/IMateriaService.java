@@ -5,7 +5,7 @@ import com.uce.edu.demo.modelo.Materia;
 public interface IMateriaService {
 
 	
-		public void ingresarMateria(Materia m);
+		public void crearMateria(Materia m);
 		
 
 		public void buscarMateria (Materia m);

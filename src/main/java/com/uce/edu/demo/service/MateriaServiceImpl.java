@@ -12,9 +12,9 @@ public class MateriaServiceImpl implements IMateriaService {
 	private IMateriaRepository materiaRepository;
 
 	@Override
-	public void ingresarMateria(Materia m) {
+	public void crearMateria(Materia m) {
 		// TODO Auto-generated method stub
-		this.materiaRepository.insertar(m);
+		this.materiaRepository.crear(m);
 	}
 
 	@Override

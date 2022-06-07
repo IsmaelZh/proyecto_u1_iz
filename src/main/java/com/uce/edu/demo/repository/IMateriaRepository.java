@@ -6,7 +6,7 @@ public interface IMateriaRepository {
 
 //CRUD
 	//C: crear/insertar 
-	public void insertar(Materia m);
+	public void crear(Materia m);
 	
 	//R: leer/buscar
 	public void buscar (Materia m);
