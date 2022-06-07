@@ -15,5 +15,5 @@ public interface IEstudianteRepository {
 	public void actualizar(Estudiante e);
 	
 	//D: eliminar
-	public void eliminar(Estudiante e);
+	public void eliminar(String cedula);
 }

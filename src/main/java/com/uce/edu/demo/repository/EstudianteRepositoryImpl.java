@@ -15,10 +15,12 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository {
 	}
 
 	@Override
-	public Estudiante buscar(String cedula) {
+	public Estudiante buscar(String apellido) {
 		// TODO Auto-generated method stub
-		System.out.println("Se a encontrado en la base el estudiante: " + cedula);
-		return null;
+		System.out.println("Se a encontrado en la base el estudiante: " + apellido);
+		Estudiante e = new Estudiante();
+		e.setApellido(apellido);
+		return e;
 	}
 
 	@Override
@@ -26,13 +28,12 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository {
 		// TODO Auto-generated method stub
 		System.out.println("Se a actualizado en la base el estudiante: " + e);
 		
-		
 	}
 
 	@Override
-	public void eliminar(Estudiante e) {
+	public void eliminar(String cedula) {
 		// TODO Auto-generated method stub
-		System.out.println("Se a borrado en la base el estudiante: " + e);
+		System.out.println("Se a borrado en la base el estudiante: " + cedula);
 		
 	}
 
