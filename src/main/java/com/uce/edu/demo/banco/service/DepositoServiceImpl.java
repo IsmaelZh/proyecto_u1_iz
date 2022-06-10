@@ -1,6 +1,7 @@
 package com.uce.edu.demo.banco.service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,10 +28,29 @@ public class DepositoServiceImpl implements IDepositoService {
 		this.bancariaService.actualizar(ctaDestino);
 		
 		Deposito deposito = new Deposito();
+		deposito.setFecha(LocalDateTime.now());
 		deposito.setNumeroCuentaDestino(numeroCtaDestino);
 		deposito.setMonto(monto);
 		this.depositoRepository.insertarDeposito(deposito);
 		
+	}
+
+	@Override
+	public Deposito buscar(String numeroCuentaDestino) {
+		// TODO Auto-generated method stub
+		return this.depositoRepository.buscar(numeroCuentaDestino);
+	}
+
+	@Override
+	public void actualizar(Deposito d) {
+		// TODO Auto-generated method stub
+		this.depositoRepository.actualizar(d);;
+	}
+
+	@Override
+	public void eliminar(String numeroCuentaDestino) {
+		// TODO Auto-generated method stub
+		this.depositoRepository.eliminar(numeroCuentaDestino);
 	}
 
 }

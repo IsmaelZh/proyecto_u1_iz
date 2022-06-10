@@ -21,7 +21,7 @@ public class TranferenciaServiceImpl implements ITranferenciaService{
 	@Override
 	public void realizarTransferencia(String ctaOrigen, String ctaDestino, BigDecimal monto) {
 		// TODO Auto-generated method stub
-		CuentaBancaria cOrigen = this.bancariaService.buscar(ctaDestino);
+		CuentaBancaria cOrigen = this.bancariaService.buscar(ctaOrigen);
 		BigDecimal saldoOrigen = cOrigen.getSaldo();
 		BigDecimal nuevoSaldoOrigen = saldoOrigen.subtract(monto);
 		cOrigen.setSaldo(nuevoSaldoOrigen);
@@ -41,6 +41,24 @@ public class TranferenciaServiceImpl implements ITranferenciaService{
 		
 		this.iTransferenciaRepository.insertar(t);
 		
+	}
+
+	@Override
+	public Transferencia buscar(String numeroCuentaOrigen) {
+		// TODO Auto-generated method stub
+		return this.iTransferenciaRepository.buscar(numeroCuentaOrigen);
+	}
+
+	@Override
+	public void actualizar(Transferencia t) {
+		// TODO Auto-generated method stub
+		this.iTransferenciaRepository.actualizar(t);;
+	}
+
+	@Override
+	public void eliminar(String numeroCuentaOrigen) {
+		// TODO Auto-generated method stub
+		this.iTransferenciaRepository.eliminar(numeroCuentaOrigen);;
 	}
 	
 }

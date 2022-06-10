@@ -4,12 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
+import com.uce.edu.demo.banco.repository.ICuentaBancariaRepository;
 
 @Service
 public class CuentaBancariServiceImpl implements ICuentaBancariaService{
 
 	@Autowired
-	private ICuentaBancariaService bancariaRepository;
+	private ICuentaBancariaRepository bancariaRepository;
 	
 	@Override
 	public void actualizar(CuentaBancaria c) {
@@ -21,6 +22,18 @@ public class CuentaBancariServiceImpl implements ICuentaBancariaService{
 	public CuentaBancaria buscar(String numero) {
 		// TODO Auto-generated method stub
 		return this.bancariaRepository.buscar(numero);
+	}
+
+	@Override
+	public void insertar(CuentaBancaria c) {
+		this.bancariaRepository.insertar(c);
+		
+	}
+
+	@Override
+	public void eliminar(String numero) {
+		// TODO Auto-generated method stub
+		this.bancariaRepository.eliminar(numero);
 	}
 
 }

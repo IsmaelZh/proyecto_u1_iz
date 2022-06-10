@@ -12,7 +12,7 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository{
 	@Override
 	public void actualizar(CuentaBancaria c) {
 		//Aqui hay que construir los SQL's
-		System.out.println("Cuenta bancaria actualizar");
+		System.out.println("Cuenta bancaria actualizada a: " + c);
 	}
 
 	@Override
@@ -23,6 +23,18 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository{
 		cta.setNumero(numero);
 		cta.setSaldo(new BigDecimal(100));
 		return cta;
+	}
+
+	@Override
+	public void insertar(CuentaBancaria c) {
+		
+		System.out.println("Se ha insertado la ceunta bancaria: " + c);
+	}
+
+	@Override
+	public void eliminar(String numero) {
+		
+		System.out.println("Se ha eliminado la ceunta bancaria: " + numero);		
 	}
 
 }
