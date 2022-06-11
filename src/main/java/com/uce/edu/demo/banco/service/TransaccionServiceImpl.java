@@ -1,5 +1,101 @@
 package com.uce.edu.demo.banco.service;
 
-public class TransaccionServiceImpl {
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.uce.edu.demo.banco.modelo.Deposito;
+import com.uce.edu.demo.banco.modelo.Retiro;
+import com.uce.edu.demo.banco.modelo.Transferencia;
+import com.uce.edu.demo.banco.to.TransaccionTo;
+
+@Service
+public class TransaccionServiceImpl implements ITransaccionService {
+
+	@Autowired
+	private ITransaccionService iTranfereciaService;
+	@Autowired
+	private IDepositoService iDepositoService;
+	@Autowired
+	private IRetiroService iRetiroService;
+
+	@Override
+	public void transferencia(String origen, String destino, BigDecimal monto) {
+		// TODO Auto-generated method stub
+		this.iTranfereciaService.transferencia(origen, destino, monto);
+	}
+
+	@Override
+	public void deposito(String destino, BigDecimal monto) {
+
+		this.iDepositoService.realizarDeposito(destino, monto);
+
+	}
+
+	@Override
+	public void retiro(String ctaRetiro, BigDecimal monto) {
+
+		this.iRetiroService.realizarRetiro(ctaRetiro, monto);
+
+	}
+
+	@Override
+	public List<TransaccionTo> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		// TODO Auto-generated method stub
+		List<Transferencia> listaTrans = null;
+		List<Deposito> listaDepo = null;
+		List<Retiro> listaRet = null;
+		// Vamos a unir todas las listas
+		List<TransaccionTo> listaFinal = new ArrayList<>();
+		
+		for (Transferencia t : listaTrans) {
+			TransaccionTo transaccionTo = this.trasformar(t);
+			listaFinal.add(transaccionTo);
+		}
+		
+		for (Deposito d : listaDepo) {
+			TransaccionTo transaccionTo = this.trasformar(d);
+			listaFinal.add(transaccionTo);
+		}
+		
+		for (Retiro r : listaRet) {
+			TransaccionTo transaccionTo = this.trasformar(r);
+			listaFinal.add(transaccionTo);
+		}
+		
+		return listaFinal;
+	}
+
+	private TransaccionTo trasformar(Transferencia transferencia) {
+		TransaccionTo tranTo = new TransaccionTo();
+		tranTo.setFecha(transferencia.getFechaTransferecina());
+		tranTo.setMonto(transferencia.getMontoTranSferir());
+		tranTo.setTipo("Tranderencia");
+		return tranTo ;
+
+	}
+
+
+	private TransaccionTo transformar (Deposito deposito ) {
+		
+		TransaccionTo tranTo = new TransaccionTo();
+		tranTo.setFecha(deposito.getFechaDeposito());
+		tranTo.setMonto(deposito.getMonto());
+		tranTo.setTipo("D");
+		
+		return tranTo;
+	}
+	private TransaccionTo transformar (Retiro retiro ) {
+		
+		TransaccionTo tranTo = new TransaccionTo();
+		tranTo.setFecha(retiro.getFechaRetiro());
+		tranTo.setMonto(retiro.getMonto());
+		tranTo.setTipo("D");
+		
+		return tranTo;
 
 }

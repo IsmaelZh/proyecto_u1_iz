@@ -34,9 +34,9 @@ public class TranferenciaServiceImpl implements ITranferenciaService{
 		this.bancariaService.actualizar(cDestino);
 		
 		Transferencia t = new Transferencia();
-		t.setNuemroCuentaOrigen(ctaOrigen);
+		t.setNumeroCuentaOrigen(ctaOrigen);
         t.setNumeroCuentaDestino(ctaDestino);
-        t.setMontoTranSferir(monto);
+        t.setMontoTransferir(monto);
         t.setFechaTransferecina(LocalDateTime.now());
 		
 		this.iTransferenciaRepository.insertar(t);
