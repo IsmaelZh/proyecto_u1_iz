@@ -8,7 +8,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.uce.edu.demo.banco.modelo.Retiro;
-import com.uce.edu.demo.banco.modelo.Transferencia;
 
 @Repository
 public class RetiroRepositoryImpl implements IRetiroRepository {
@@ -41,15 +40,17 @@ public class RetiroRepositoryImpl implements IRetiroRepository {
 	}
 
 	@Override
-	public List<Retiro> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaRetiro) {
-		List<Retiro> listaConsultada = new ArrayList<>();
+	public List<Retiro> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		
+		List<Retiro> listaRetiros = new ArrayList<>();
         Retiro ret1 = new Retiro();
-        ret1.setFechaRetiro(LocalDateTime.now());
-        ret1.setMonto(new BigDecimal(100));
+        ret1.setFechaRetiro(LocalDateTime.of(2022, 12, 20, 13, 34, 10));
+        ret1.setMonto(new BigDecimal(25));
         ret1.setNumeroCuentaOrigen("1652");
 
-        listaConsultada.add(ret1);
-        return listaConsultada;
+        listaRetiros.add(ret1);
+        
+        return listaRetiros;
 	}
 
 	

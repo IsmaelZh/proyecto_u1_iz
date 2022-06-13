@@ -16,6 +16,6 @@ public interface ITransferenciaRepository {
 	//D: eliminar
 	public void eliminar(String numeroCuentaOrigen);
 
-	public List<Transferencia> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaRetiro);
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin);
 
 }

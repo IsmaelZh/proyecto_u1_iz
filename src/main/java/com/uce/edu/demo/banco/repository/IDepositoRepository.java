@@ -16,5 +16,5 @@ public interface IDepositoRepository {
 	//D: eliminar
 	public void eliminar(String numeroCuentaDestino);
 
-	public List<Deposito> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaRetiro);
+	public List<Deposito> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin);
 }

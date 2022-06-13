@@ -40,9 +40,9 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 	}
 
 	@Override
-	public List<Transferencia> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaRetiro) {
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		// TODO Auto-generated method stub
-		
+		//Aqui deberia estar el SQL a la base
 		List<Transferencia> listaConsultada = new ArrayList<>();
         Transferencia trans1 = new Transferencia();
         trans1.setFechaTransferecina(LocalDateTime.now());
@@ -53,7 +53,6 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
         listaConsultada.add(trans1);
         return listaConsultada;
 		
-	
 	}
 
 }

@@ -16,6 +16,6 @@ public interface IRetiroRepository {
 		//D: eliminar
 		public void eliminar(String numeroCuentaOrigen);
 		
-		public List<Retiro> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaRetiro);
+		public List<Retiro> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin);
 	
 }
