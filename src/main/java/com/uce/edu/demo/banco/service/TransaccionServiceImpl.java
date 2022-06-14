@@ -16,16 +16,13 @@ import com.uce.edu.demo.banco.repository.IRetiroRepository;
 import com.uce.edu.demo.banco.repository.ITransferenciaRepository;
 import com.uce.edu.demo.banco.to.TransaccionTo;
 
-/*@Service
+@Service
 public class TransaccionServiceImpl implements ITransaccionService {
 
-	@Autowired
-	private ITransaccionService iTranfereciaService;
 	@Autowired
 	private IDepositoService iDepositoService;
 	@Autowired
 	private IRetiroService iRetiroService;
-
 	@Autowired
 	private ITransferenciaRepository iTransferenciaRepository;
 	@Autowired
@@ -36,60 +33,53 @@ public class TransaccionServiceImpl implements ITransaccionService {
 	@Override
 	public void transferencia(String origen, String destino, BigDecimal monto) {
 		// TODO Auto-generated method stub
-		this.iTranfereciaService.transferencia(origen, destino, monto);
+
 	}
 
 	@Override
 	public void deposito(String destino, BigDecimal monto) {
-
 		this.iDepositoService.realizarDeposito(destino, monto);
 
 	}
 
 	@Override
 	public void retiro(String ctaRetiro, BigDecimal monto) {
-
 		this.iRetiroService.realizarRetiro(ctaRetiro, monto);
 
 	}
 
 	@Override
 	public List<TransaccionTo> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-		// TODO Auto-generated method stub
 		List<Transferencia> listaTrans = this.iTransferenciaRepository.consultar(cuenta, fechaInicio, fechaFin);
 		List<Deposito> listaDepo = this.iDepositoRepository.consultar(cuenta, fechaInicio, fechaFin);
-		List<Retiro> listaRet = this.iRetiroRepository.consultar(cuenta, fechaInicio, fechaFin);
-
-		// Vamos a unir todas las listas
+		List<Retiro> listaRetiro = this.iRetiroRepository.consultar(cuenta, fechaInicio, fechaFin);
+		// vamos a unir todas las listas
 		List<TransaccionTo> listaFinal = new ArrayList<>();
 
 		for (Transferencia t : listaTrans) {
-			TransaccionTo transaccionTo = this.trasformar(t);
+			TransaccionTo transaccionTo = this.transformar(t);
 			listaFinal.add(transaccionTo);
 		}
-
-		for (Deposito d : listaDepo) {
-			TransaccionTo transaccionTo = this.transformar(d);
+		for (Deposito t : listaDepo) {
+			TransaccionTo transaccionTo = this.transformar(t);
 			listaFinal.add(transaccionTo);
 		}
-
-		for (Retiro r : listaRet) {
-			TransaccionTo transaccionTo = this.transformar(r);
+		for (Retiro t : listaRetiro) {
+			TransaccionTo transaccionTo = this.transformar(t);
 			listaFinal.add(transaccionTo);
 		}
 
 		return listaFinal;
+
 	}
 
-	private TransaccionTo trasformar(Transferencia transferencia) {
-
+	private TransaccionTo transformar(Transferencia transferencia) {
 		TransaccionTo tranTo = new TransaccionTo();
 		tranTo.setFecha(transferencia.getFechaTransferecina());
 		tranTo.setMonto(transferencia.getMontoTransferir());
 		tranTo.setTipo("T");
 
 		return tranTo;
-
 	}
 
 	private TransaccionTo transformar(Deposito deposito) {
@@ -107,9 +97,8 @@ public class TransaccionServiceImpl implements ITransaccionService {
 		TransaccionTo tranTo = new TransaccionTo();
 		tranTo.setFecha(retiro.getFechaRetiro());
 		tranTo.setMonto(retiro.getMonto());
-		tranTo.setTipo("R");
+		tranTo.setTipo("D");
 
 		return tranTo;
-
 	}
-}*/
+}
